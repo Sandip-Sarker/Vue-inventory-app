@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Http\Request;
 use App\Models\User;
 use function dd;
+use function response;
 
 
 class UserController extends Controller
@@ -67,6 +68,15 @@ class UserController extends Controller
                 'message' => 'unauthorized'
             ]);
         }
+    }
+
+    public function logout(Request $request)
+    {
+
+        return response()->json([
+            'status' => 'success',
+            'message'=> 'Logout Successfully'
+        ])->cookie('token', '', -1);
     }
 
 

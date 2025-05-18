@@ -6,7 +6,7 @@ use App\Helper\JWTToken;
 use Exception;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use function dd;
 
 
 class UserController extends Controller
@@ -46,9 +46,11 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
+
         $user = User::where('email', $request->input('email'))
             ->where('password', $request->input('password'))
             ->select('id')->first();
+
 
         if ($user !== null) {
             $token = JWTToken::generateToken($request->input('email'), $user->id);

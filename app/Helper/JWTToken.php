@@ -5,7 +5,9 @@ namespace App\Helper;
 use Exception;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+use function dd;
 use function env;
+use function var_dump;
 
 class JWTToken
 {
@@ -21,20 +23,25 @@ class JWTToken
         ];
 
 
+
        return  JWT::encode($payload, $key, 'HS256');
     }
 
     public static function VerifyToken($token)
     {
+
         try {
-
             if($token === null){
+
                 return 'unauthorized';
-
             }else{
-                $key = env('JWT_KEY');
-                return JWT::decode($key, new Key($key, 'HS256'));
 
+                $key = env('JWT_KEY');
+
+                // decode JWT token
+                $decode =  JWT::decode($token, new Key($key, 'HS256'));
+
+                return $decode;
             }
 
         }catch (Exception $e){

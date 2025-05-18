@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Helper\JWTToken;
+use Exception;
 use Illuminate\Http\Request;
 use App\Models\User;
+
+
 
 class UserController extends Controller
 {
@@ -15,7 +18,7 @@ class UserController extends Controller
         $request->validate([
             'name'      => 'required',
             'email'     => 'required|email|unique:users,email',
-            'phone'     => 'required|unique:users,phone',
+            'phone'     => 'required',
             'password'  => 'required|min:6',
         ]);
 
@@ -25,7 +28,7 @@ class UserController extends Controller
         $user->phone        = $request->input('phone');
         $user->password     = $request->input('password');
         $user->save();
-  
+
 
         return response()->json([
             'status' => true,
@@ -59,8 +62,10 @@ class UserController extends Controller
         } else {
             return response()->json([
                 'status' => false,
-                'message' => 'Invalid email or password'
+                'message' => 'unauthorized'
             ]);
         }
     }
+
+
 }

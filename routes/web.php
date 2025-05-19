@@ -13,6 +13,7 @@ Route::get('/about', [HomeController::class, 'about']);
 
 Route::post('/user-registration', [UserController::class, 'registration'])->name('user.registration');
 Route::post('/user-login', [UserController::class, 'login'])->name('user.login');
+Route::post('/send-otp', [UserController::class, 'sendOtp'])->name('send.otp');
 
 Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 

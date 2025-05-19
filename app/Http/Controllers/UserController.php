@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Helper\JWTToken;
+use App\Mail\OTPMail;
 use Exception;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use function dd;
+use function rand;
 use function response;
 
 
@@ -77,6 +80,34 @@ class UserController extends Controller
             'status' => 'success',
             'message'=> 'Logout Successfully'
         ])->cookie('token', '', -1);
+    }
+
+    public function sendOtp(Request $request)
+    {
+        $email = $request->input('email');
+
+        $otp   = rand(1000, 9999);
+
+        $user  = User::where('email', $email)->first();
+
+        if ($user){
+
+            //send otp mail
+            Mail::to($email)->send(new OTPMail($otp));
+
+            User::where('email', $email)->update(['otp' => $otp]);
+
+            return response()->json([
+                'status' => 'success',
+                'message'=> '4 digit {$otp} OTP send successfully',
+            ]);
+        }else{
+
+            return response()->json([
+                'status' => 'failed',
+                'message'=> 'unauthorized',
+            ]);
+        }
     }
 
 

@@ -18,7 +18,9 @@ Route::post('/verify-otp', [UserController::class, 'verifyOtp'])->name('verify.o
 
 Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/user-logout', [UserController::class, 'logout'])->name('user.logout');
+    Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('reset.password');
+
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 });

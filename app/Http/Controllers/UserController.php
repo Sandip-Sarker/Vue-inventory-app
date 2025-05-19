@@ -85,9 +85,7 @@ class UserController extends Controller
     public function sendOtp(Request $request)
     {
         $email = $request->input('email');
-
         $otp   = rand(1000, 9999);
-
         $user  = User::where('email', $email)->first();
 
         if ($user){
@@ -99,7 +97,7 @@ class UserController extends Controller
 
             return response()->json([
                 'status' => 'success',
-                'message'=> '4 digit {$otp} OTP send successfully',
+                'message'=> "4 digit {$otp} OTP send successfully",
             ]);
         }else{
 
@@ -110,5 +108,28 @@ class UserController extends Controller
         }
     }
 
+    public function verifyOtp(Request $request)
+    {
+        $email  = $request->input('email');
+        $otp    = $request->input('otp');
 
+        $user   = User::where('email', $email)->where('otp', $otp)->first();
+
+        if ($user){
+
+            User::where('email', $email)->update(['otp' => 0]);
+            $token = JWTToken::generateTokenForSetPassword($request->input('email'));
+
+            return response()->json([
+                'status' => 'success',
+                'message'=> 'OTP Verified Successfully'
+            ])->cookie('token', $token, 60*24*30);;
+
+        }else{
+            return response()->json([
+               'status' => 'failed',
+               'message'=> 'unauthorized'
+            ]);
+        }
+    }
 }

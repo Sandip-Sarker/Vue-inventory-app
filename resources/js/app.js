@@ -3,6 +3,9 @@ import { createInertiaApp } from '@inertiajs/vue3'
 import { router } from '@inertiajs/vue3'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NProgress from 'nprogress'
+import './Assets/css/style.css'
+import './Assets/css/sidebar.css'
+
 
 
 
@@ -27,4 +30,4 @@ router.on('finish', () => {
 }
 )
 
-          
+

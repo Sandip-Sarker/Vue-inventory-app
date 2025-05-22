@@ -4,7 +4,7 @@
 
             <a href="{{route('dashboard')}}" class="side-bar-item">
                 <i class="bi bi-graph-up"></i>
-                <span class="side-bar-item-caption">Dashboard</span>
+                <span class="side-bar-item-caption text-primary">Dashboard</span>
             </a>
 
             <a href="{{route('customer.index')}}" class="side-bar-item">

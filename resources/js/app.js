@@ -8,6 +8,7 @@ import NProgress from 'nprogress'
 import './Assets/css/style.css'
 import './Assets/css/sidebar.css'
 import './Assets/css/fontawesome.css'
+import './Assets/css/animate.min.css'
 
 
 

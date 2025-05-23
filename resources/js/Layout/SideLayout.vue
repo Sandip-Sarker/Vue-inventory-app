@@ -36,11 +36,9 @@
                 <i class="bi bi-file-earmark-bar-graph"></i>
                 <span class="side-bar-item-caption">Report</span>
             </a>
-
-
         </div>
 
-        <slot></slot>
+
     </div>
 </template>
 

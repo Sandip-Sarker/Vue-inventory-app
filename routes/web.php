@@ -12,6 +12,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [UserController::class, 'loginPage'])->name('login');
 Route::get('/registration', [UserController::class, 'registrationPage'])->name('registration');
+Route::get('/reset-password', [UserController::class, 'resetPasswordPage'])->name('reset.page');
 Route::post('/user-login', [UserController::class, 'login'])->name('user.login');
 Route::post('/user-registration', [UserController::class, 'registration'])->name('user.registration');
 Route::post('/send-otp', [UserController::class, 'sendOtp'])->name('send.otp');

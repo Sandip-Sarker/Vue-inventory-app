@@ -16,7 +16,7 @@
                         <span>
                             <Link class="text-center ms-3 h6" href="/registration">Sign Up </Link>
                             <span class="ms-1">|</span>
-                            <a class="text-center ms-3 h6" href="{{route('send.otp')}}">Forget Password</a>
+                            <Link class="text-center ms-3 h6" href="/reset-password">Forget Password</Link>
                         </span>
                         </div>
                     </div>

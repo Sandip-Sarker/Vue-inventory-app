@@ -14,7 +14,7 @@
                         <hr/>
                         <div class="float-end mt-3">
                         <span>
-                            <a class="text-center ms-3 h6" href="{{route('registration')}}">Sign Up </a>
+                            <Link class="text-center ms-3 h6" href="/registration">Sign Up </Link>
                             <span class="ms-1">|</span>
                             <a class="text-center ms-3 h6" href="{{route('send.otp')}}">Forget Password</a>
                         </span>
@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-
+    import { Link } from '@inertiajs/vue3'
 </script>
 
 <style scoped>

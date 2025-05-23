@@ -20,6 +20,10 @@ class UserController extends Controller
     {
         return Inertia::render('Frontend/Auth/Login');
     }
+    public function registrationPage()
+    {
+        return Inertia::render('Frontend/Auth/Registration');
+    }
 
     public function registration(Request $request)
     {

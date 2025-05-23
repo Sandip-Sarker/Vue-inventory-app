@@ -10,9 +10,10 @@ use App\Http\Controllers\backend\DashboardController;
 Route::get('/', [HomeController::class, 'index']);
 
 
-Route::post('/user-registration', [UserController::class, 'registration'])->name('user.registration');
-Route::get('/login', [UserController::class, 'loginPage'])->name('user.login.page');
+Route::get('/login', [UserController::class, 'loginPage'])->name('login');
+Route::get('/registration', [UserController::class, 'registrationPage'])->name('registration');
 Route::post('/user-login', [UserController::class, 'login'])->name('user.login');
+Route::post('/user-registration', [UserController::class, 'registration'])->name('user.registration');
 Route::post('/send-otp', [UserController::class, 'sendOtp'])->name('send.otp');
 Route::post('/verify-otp', [UserController::class, 'verifyOtp'])->name('verify.otp');
 

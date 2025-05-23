@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
+use Inertia\Inertia;
 use function dd;
 use function rand;
 use function response;
@@ -15,6 +16,11 @@ use function response;
 
 class UserController extends Controller
 {
+    public function loginPage()
+    {
+        return Inertia::render('Frontend/Auth/Login');
+    }
+
     public function registration(Request $request)
     {
        try{

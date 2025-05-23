@@ -20,7 +20,9 @@
                     <li class="nav-item me-4"><a class="nav-link" href="#">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
                 </ul>
-                <div><a class="btn mt-3 bg-gradient-primary" href="">Start Sale</a></div>
+                <div>
+                    <Link class="btn mt-3 bg-gradient-primary" href="/login">Start Sale</Link>
+                </div>
             </div>
         </div>
     </nav>

@@ -9,12 +9,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return inertia::render('Home', [
-            'title' => 'Home',
-            'description' => 'Welcome to the home page.',
-        ]);
-    } 
-    
+        return inertia::render('Frontend/Home');
+    }
+
+
     public function about()
     {
         return inertia::render('About', [

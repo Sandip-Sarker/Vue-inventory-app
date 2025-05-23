@@ -5,10 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import NProgress from 'nprogress'
-import './Assets/css/style.css'
-import './Assets/css/sidebar.css'
-import './Assets/css/fontawesome.css'
 import './Assets/css/animate.min.css'
+import './Assets/css/dropdownmenu.css'
+import './Assets/css/fontawesome.css'
+import './Assets/css/sidebar.css'
+import './Assets/css/style.css'
+import './Assets/css/bootstrap.css'
+import './Assets/js/config'
+import './Assets/js/bootstrap.bundle'
+
 
 
 

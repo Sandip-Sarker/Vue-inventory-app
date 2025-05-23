@@ -16,7 +16,7 @@
                         <span>
                             <Link class="text-center ms-3 h6" href="/registration">Sign Up </Link>
                             <span class="ms-1">|</span>
-                            <Link class="text-center ms-3 h6" href="/reset-password">Forget Password</Link>
+                            <Link class="text-center ms-3 h6" href="/Otp">Forget Password</Link>
                         </span>
                         </div>
                     </div>

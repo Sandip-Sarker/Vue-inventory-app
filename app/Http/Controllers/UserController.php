@@ -26,6 +26,15 @@ class UserController extends Controller
         return Inertia::render('Frontend/Auth/Registration');
     }
 
+    public function otpPage()
+    {
+        return Inertia::render('Frontend/Auth/Send-OTP');
+    }
+    public function otpVerifyPage()
+    {
+        return Inertia::render('Frontend/Auth/Verify-OTP');
+    }
+
     public function resetPasswordPage()
     {
         return Inertia::render('Frontend/Auth/Forgot-Password');

@@ -9,19 +9,28 @@ use App\Http\Controllers\backend\DashboardController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+// User Controller
+Route::controller(UserController::class)->group(function () {
+    Route::get('/login', 'loginPage')->name('login');
+    Route::post('/user-login', 'login')->name('user.login');
+    Route::get('/registration', 'registrationPage')->name('registration');
+    Route::post('/user-registration', 'registration')->name('user.registration');
+    Route::get('/Otp', 'otpPage')->name('otp');
+    Route::post('/send-otp','sendOtp')->name('send.otp');
+});
 
-Route::get('/login', [UserController::class, 'loginPage'])->name('login');
-Route::get('/registration', [UserController::class, 'registrationPage'])->name('registration');
-Route::get('/reset-password', [UserController::class, 'resetPasswordPage'])->name('reset.page');
-Route::post('/user-login', [UserController::class, 'login'])->name('user.login');
-Route::post('/user-registration', [UserController::class, 'registration'])->name('user.registration');
-Route::post('/send-otp', [UserController::class, 'sendOtp'])->name('send.otp');
-Route::post('/verify-otp', [UserController::class, 'verifyOtp'])->name('verify.otp');
 
 Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 
-    Route::get('/user-logout', [UserController::class, 'logout'])->name('user.logout');
-    Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('reset.password');
+    // User Controller
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/Otp-verify', 'otpVerifyPage')->name('verify.otp.page');
+        Route::post('/verify-otp',  'verifyOtp')->name('verify.otp');
+        Route::get('/reset-password',  'resetPasswordPage')->name('reset.page');
+        Route::post('/reset-password', 'resetPassword')->name('reset.password');
+        Route::get('/user-logout', 'logout')->name('user.logout');
+    });
+
 
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
